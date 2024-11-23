@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, Session, declarative_base  # 更新這行
 from pydantic import BaseModel
 from typing import Optional, List
-import uvicorn
+# import uvicorn
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from uuid import UUID, uuid4
 import secrets
