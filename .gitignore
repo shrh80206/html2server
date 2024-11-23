@@ -1,3 +1,4 @@
+
 .DS_Store
 *.db
 files
@@ -51,4 +52,6 @@ _book
 *.mp3
 # video
 *.mp4
+!test.mp4
+
 *.avi
