@@ -53,5 +53,6 @@ _book
 # video
 *.mp4
 !test.mp4
+!test.mp3
 
 *.avi
