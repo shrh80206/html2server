@@ -1,4 +1,29 @@
+# fastapi 使用方法
 
+假如有個 main.py
+
+可以用下列指令來啟動該 server
+
+    fastapi dev main.py 
+
+或者用
+
+    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+這兩種方法都會在程式修改後自動重載
+
+如果不要自動重載，那麼
+
+可以用下列指令來啟動該 server
+
+    fastapi run main.py
+
+或者用
+
+    uvicorn main:app --host 0.0.0.0 --port 8000
+
+
+## 參考
 
 * https://fastapi.tiangolo.com/
     * [fastapi 教程 - 用户指南](https://fastapi.tiangolo.com/)
