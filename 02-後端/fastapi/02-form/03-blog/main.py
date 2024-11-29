@@ -24,7 +24,7 @@ async def new_post(request: Request):
 async def create_post(
     title: str = Form(...),
     body: str = Form(...),
-):t
+):
     new_post = {"id":len(posts), "title":title, "body":body}
     posts.append(new_post)
     return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)

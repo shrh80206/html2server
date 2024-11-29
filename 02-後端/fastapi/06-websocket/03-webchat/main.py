@@ -1,10 +1,16 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="./static"), name="static")
+
+# 根路徑重定向到 static/index.html
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/static/index.html")
 
 # WebSocket 處理
 class ConnectionManager:
@@ -41,3 +47,4 @@ async def websocket_endpoint(websocket: WebSocket):
     except WebSocketDisconnect:
         print("WebSocket disconnected")
         manager.disconnect(websocket)
+
