@@ -2,7 +2,7 @@
 
 ```
 ccckmit@asus MINGW64 /d/ccc/ws/python/02-streamlit/01-app1 (master)
-$ streamlit run app1.py
+$ streamlit run app.py
 
   You can now view your Streamlit app in your browser.
 
