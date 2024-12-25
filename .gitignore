@@ -38,7 +38,7 @@ raw
 node_modules
 __pycache__
 # Book build output
-_book
+#_book
 
 # eBook build output
 *.epub
