@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker, Session, declarative_base
 from pydantic import BaseModel
 from fastapi.templating import Jinja2Templates
 
+
 # 資料庫設定
 SQLALCHEMY_DATABASE_URL = "sqlite:///./blog.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})

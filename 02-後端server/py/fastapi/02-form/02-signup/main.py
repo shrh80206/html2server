@@ -14,10 +14,6 @@ fake_db = {}
 # 設定 HTML 模板
 templates = Jinja2Templates(directory="templates")
 
-# 讓 FastAPI 支援靜態檔案 (如 CSS, JS)
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-
 # 首頁顯示註冊登入選單
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
