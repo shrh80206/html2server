@@ -1,9 +1,10 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse, RedirectResponse
 
 # 初始化 FastAPI 應用程式
 app = FastAPI()
@@ -64,3 +65,6 @@ async def execute_sql(sql_query: SQLQuery, db: Session = Depends(get_db)):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/static/index.html", status_code=status.HTTP_303_SEE_OTHER)
