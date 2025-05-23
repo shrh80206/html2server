@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-  var socket = new WebSocket("ws://127.0.0.1:8000/ws")
+  var socket = new WebSocket("ws://127.0.0.1:8015/ws")
   var canvas = document.querySelectorAll('.whiteboard')[0];
   var colors = document.querySelectorAll('.color');
   var context = canvas.getContext('2d');
