@@ -1,6 +1,6 @@
 var R = {}
 
-var socket = new WebSocket("ws://127.0.0.1:8000/ws")
+var socket = new WebSocket("ws://127.0.0.1:8013/ws")
 
 socket.onopen = function (event) {
   console.log('socket:onopen()...')

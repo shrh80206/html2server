@@ -1,5 +1,5 @@
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, status
+from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 import os
 import json
@@ -44,6 +44,7 @@ async def websocket_endpoint(websocket: WebSocket):
     """
     WebSocket 伺服端點，處理連線、訊息接收與廣播。
     """
+    print('websocket_endpoint()...')
     await manager.connect(websocket)
     try:
         while True:
@@ -75,5 +76,6 @@ async def get():
     """
     服務首頁的 HTML 文件。
     """
-    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
+    return RedirectResponse(url="/static/index.html", status_code=status.HTTP_303_SEE_OTHER)
+    # return FileResponse(os.path.join("static", "index.html"))
 
