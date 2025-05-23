@@ -40,11 +40,11 @@
       form.onsubmit = function(event) {
         event.preventDefault();
         try {
-        let umsg = user.value + ':' + msg.value
-        // socket.emit('chat message', umsg)
-        socket.send(JSON.stringify(umsg))
-        console.log('umsg=', umsg)
-        msg.value = ''
+          let umsg = user.value + ':' + msg.value
+          // socket.emit('chat message', umsg)
+          socket.send(JSON.stringify(umsg))
+          console.log('umsg=', umsg)
+          msg.value = ''
         return false
         } catch (error) {
           console.log('error=', error)
