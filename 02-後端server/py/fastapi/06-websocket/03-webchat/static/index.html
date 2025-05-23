@@ -22,8 +22,9 @@
       <button id="send">Send</button>
     </form>
     <script>
-      // var socket = new WebSocket("ws://"+window.location.hostname+":8000")
-      var socket = new WebSocket("ws://127.0.0.1:8000/ws")
+      // var socket = new WebSocket("wss://"+window.location.hostname+":8014/ws")
+      var socket = new WebSocket("ws://"+window.location.hostname+":8014/ws")
+      // var socket = new WebSocket("ws://127.0.0.1:8014/ws")
       var form = document.querySelector('form')
       var user = document.querySelector('#user')
       var msg  = document.querySelector('#msg')
@@ -36,13 +37,18 @@
         return doc.body.firstChild
       }
 
-      form.onsubmit = function() {
+      form.onsubmit = function(event) {
+        event.preventDefault();
+        try {
         let umsg = user.value + ':' + msg.value
         // socket.emit('chat message', umsg)
         socket.send(JSON.stringify(umsg))
         console.log('umsg=', umsg)
         msg.value = ''
         return false
+        } catch (error) {
+          console.log('error=', error)
+        }
       }
 
 			socket.onopen = function (event) { console.log('socket:onopen()...') }
