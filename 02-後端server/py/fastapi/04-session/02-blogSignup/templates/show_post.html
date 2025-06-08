@@ -1,6 +1,9 @@
-{% extends "base.html" %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.body }}</p>
+<p>作者: {{ post.username }}</p>
 
-{% block content %}
-    <h1>{{ post.title }} -- by {{ post.username }}</h1>
-    <p>{{ post.body }}</p>
-{% endblock %}
+{% if request.session.get('user') and request.session['user']['username'] == post.username %}
+  <form method="post" action="/post/{{ post.id }}/delete" onsubmit="return confirm('確定要刪除這篇貼文嗎？')">
+    <button type="submit">刪除貼文</button>
+  </form>
+{% endif %}
